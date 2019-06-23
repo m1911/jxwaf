@@ -23,7 +23,7 @@ fi
 
 yum install -y epel-release pcre-devel openssl-devel cmake make curl lua-devel gcc-c++ automake
 
-tar zxvf openresty-1.15.8.1.tar.gz
+tar zxvf openresty-1.13.6.2.tar.gz
 tar zxvf libmaxminddb-1.3.2.tar.gz
 tar zxvf aliyun-log-c-sdk-lite.tar.gz
 tar zxvf curl-7.64.1.tar.gz
@@ -32,7 +32,7 @@ cd curl-7.64.1
 make
 make install
 
-cd ../openresty-1.15.8.1
+cd ../openresty-1.13.6.2
 ./configure --prefix=/opt/jxwaf --with-http_v2_module && gmake && gmake install
 mv /opt/jxwaf/nginx/conf/nginx.conf  /opt/jxwaf/nginx/conf/nginx.conf.bak
 cp ../conf/nginx.conf /opt/jxwaf/nginx/conf/
