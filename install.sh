@@ -53,8 +53,12 @@ cmake .
 make
 cp build/lib/liblog_c_sdk.so.2.0.0 /opt/jxwaf/lualib/liblog_c_sdk.so
 
+ServerIP=`ip addr | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'|grep -v 127.0.0.1|head -1`
+HostName=`hostname`
 sed -i 's/"waf_api_key": ""/"waf_api_key": "'$JXWAF_API_KEY'"/'  /opt/jxwaf/nginx/conf/jxwaf/jxwaf_config.json
 sed -i 's/"waf_api_password": ""/"waf_api_password": "'$JXWAF_API_PASSWD'"/'    /opt/jxwaf/nginx/conf/jxwaf/jxwaf_config.json
+sed -i "s/server_info_detail/$ServerIP|$HostName/g" /opt/jxwaf/nginx/conf/jxwaf/jxwaf_config.json
+
 
 /opt/jxwaf/nginx/sbin/nginx -t
 
