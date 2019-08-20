@@ -23,9 +23,11 @@ fi
 
 yum install -y epel-release pcre-devel openssl-devel cmake make curl lua-devel gcc-c++ automake
 
+wget -c https://openresty.org/download/openresty-1.13.6.2.tar.gz
 tar zxvf openresty-1.13.6.2.tar.gz
 tar zxvf libmaxminddb-1.3.2.tar.gz
 tar zxvf aliyun-log-c-sdk-lite.tar.gz
+wget -c https://curl.haxx.se/download/curl-7.64.1.tar.gz
 tar zxvf curl-7.64.1.tar.gz
 
 cd curl-7.64.1
